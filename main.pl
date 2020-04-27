@@ -19,7 +19,7 @@ while(1) {
     my $all_statuses = [];
     my $current_time = localtime;
 
-    for (1..9) {
+    for (1..12) {
         my $statuses = decode_json($furl->get("https://${domain}/api/v1/accounts/${account_id}/statuses?limit=40&exclude_replies=false&max_id=${max_id}")->content);
         push(@$all_statuses, @$statuses);
         $max_id = $statuses->[-1]{id};
