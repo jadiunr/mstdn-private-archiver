@@ -11,9 +11,9 @@ use Slack::WebAPI;
 
 $|=1;
 
-my $domain = $ENV{MPA_DOMAIN_NAME};
-my $access_token = $ENV{MPA_ACCESS_TOKEN};
-my $account_id = $ENV{MPA_ACCOUNT_ID};
+my $domain = $ENV{MPA_MSTDN_DOMAIN_NAME};
+my $access_token = $ENV{MPA_MSTDN_ACCESS_TOKEN};
+my $account_id = $ENV{MPA_MSTDN_ACCOUNT_ID};
 
 my $furl = Furl->new(headers => ['Authorization' => "Bearer $access_token"]);
 my $slack = Slack::WebAPI->new(

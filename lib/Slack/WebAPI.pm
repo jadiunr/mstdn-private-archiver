@@ -24,7 +24,7 @@ sub notify {
 
   my $reply_status = $status->{in_reply_to_id};
   my $reply_url = $reply_status
-                  ? "\n\nIn reply to\nhttps://$ENV{MPA_DOMAIN_NAME}/web/status/$reply_status"
+                  ? "\n\nIn reply to\nhttps://$ENV{MPA_MSTDN_DOMAIN_NAME}/web/status/$reply_status"
                   : '';
 
   say encode_utf8 $status->{account}{display_name}.' ('.$status->{account}{acct}.')';
@@ -40,7 +40,7 @@ sub notify {
         channel => $ENV{MPA_SLACK_CHANNEL_ID},
         icon_url => $status->{account}{avatar},
         username => encode_utf8 $status->{account}{display_name}.' ('.$status->{account}{acct}.')',
-        text => encode_utf8 $status->{content}.$reply_url
+        text => encode_utf8 "Status ID: ".$status->{id}."\n".$status->{content}.$reply_url
       ]
     );
   };
