@@ -40,7 +40,7 @@ sub notify {
         channel => $ENV{MPA_SLACK_CHANNEL_ID},
         icon_url => $status->{account}{avatar},
         username => encode_utf8 $status->{account}{display_name}.' ('.$status->{account}{acct}.')',
-        text => encode_utf8 "Status ID: ".$status->{id}."\n".$status->{content}.$reply_url
+        text => encode_utf8("Status ID: ".$status->{id}."\n\n".$status->{content}.$reply_url."\n\n".$status->{created_at})
       ]
     );
   };

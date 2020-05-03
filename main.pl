@@ -42,7 +42,6 @@ while(1) {
                 $slack->upload($media_attachments) if $media_attachments;
 
                 $furl->delete("https://${domain}/api/v1/statuses/$status->{id}");
-                print "Deleted toot ID: $status->{id}\n";
 
                 sleep 120;
             }
